@@ -3,8 +3,8 @@ import { MdAdd, MdQrCode2, MdShortText } from 'react-icons/md';
 import { QrReader } from 'react-qr-reader';
 
 const Header = () =>
-  <header className="bg-purple-950">
-    <h1 className="p-4 text-3xl text-purple-100">
+  <header className="flex h-16 items-center bg-purple-950">
+    <h1 className="ml-4 text-3xl text-purple-100 ">
       Чек-чек
     </h1>
   </header>
@@ -16,6 +16,7 @@ const App = () => {
 
   return <>
     <Header />
+
     <main className="bg-purple-200">
       {isScanning ? <>
         <video id="video"/>
@@ -35,27 +36,30 @@ const App = () => {
         <p>{data}</p>
       </>
       : <></>}
+    </main>
 
-      {isAdding ?
-        <div className="fixed bottom-4 right-4">
-          <button
-            className="block rounded-2xl bg-purple-950 p-4"
-            onClick={() => setIsAdding(false)}>
-            <MdShortText className="text-3xl text-purple-100"/>
-          </button>
-          <button
-            className="mt-2 block rounded-2xl bg-purple-950 p-4"
-            onClick={() => setIsScanning(true)}>
-            <MdQrCode2 className="text-3xl text-purple-100"/>
-          </button>
-        </div>
+    <div className="fixed bottom-4 right-4 flex flex-col-reverse gap-2">
+      {isAdding ? <>
+        <button
+          className="rounded-2xl bg-purple-950 p-4"
+          onClick={() => setIsScanning(true)}>
+          <MdQrCode2 className="text-3xl text-purple-100"/>
+        </button>
+        <button
+          className="rounded-2xl bg-purple-950 p-4"
+          onClick={() => { setIsAdding(false)
+            setIsScanning(false)
+            }}>
+          <MdShortText className="text-3xl text-purple-100"/>
+        </button>
+      </>
       : <button
-          className="fixed bottom-4 right-4 rounded-2xl bg-purple-950 p-4"
+          className="rounded-2xl bg-purple-950 p-4"
           onClick={() => setIsAdding(true)}>
           <MdAdd className="text-3xl text-purple-100"/>
         </button>
       }
-    </main>
+    </div>
   </>
 }
 
