@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { MdAdd, MdQrCode2, MdShortText } from 'react-icons/md'
 
 import AButton from '../common/components/AButton'
+import Button from '../common/components/Button'
 
 const HomePage = () => {
   const [isAdding, setIsAdding] = useState(false)
@@ -16,11 +17,10 @@ const HomePage = () => {
           <MdShortText className="text-3xl text-purple-100"/>
         </AButton>
       </>
-      : <button
-          className="rounded-2xl bg-purple-950 p-4"
+      : <Button
           onClick={() => setIsAdding(true)}>
           <MdAdd className="text-3xl text-purple-100"/>
-        </button>
+        </Button>
       }
     </div>
   </>

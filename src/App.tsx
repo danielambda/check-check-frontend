@@ -2,17 +2,14 @@ import Main from './Main'
 
 const Header = () =>
   <header className="flex h-16 items-center bg-purple-950">
-    <h1 className="ml-4 text-3xl text-purple-100 ">
+    <a href="/" className="ml-4 text-3xl text-purple-100 ">
       Чек-чек
-    </h1>
+    </a>
   </header>
 
-const App = () => {
-  return <>
-    <Header />
-
-    <Main />
-  </>
-}
+const App = () => <>
+  <Header />
+  <Main />
+</>
 
 export default App
