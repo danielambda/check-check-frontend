@@ -18,7 +18,6 @@ const QrReaderPage = () => {
         console.log(resultText)
         if (receiptRegExp.test(resultText)) {
           window.open(`/items-selection/${resultText}`, "_self")
-
         }
       }}
       constraints={{ facingMode: "environment" }}

@@ -16,8 +16,6 @@
             yarn
             nodejs_23
           ];
-
-          shellHook = "zsh";
         };
       }
     );
